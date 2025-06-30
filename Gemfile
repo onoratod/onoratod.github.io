@@ -11,4 +11,4 @@ group :jekyll_plugins do
   gem 'unicode_utils'
   gem 'webrick'                          # needed for local `jekyll serve`
   gem 'kramdown-parser-gfm'              # fixes the current build error
-end
+end 
