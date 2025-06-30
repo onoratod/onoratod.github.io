@@ -4,7 +4,9 @@ group :jekyll_plugins do
     gem 'jekyll-email-protect'
     gem 'jekyll-github-metadata'
     gem 'jekyll-paginate-v2'
-    gem 'jekyll-scholar', '~> 6.0'
+    gem 'jekyll-scholar',
+        git: 'https://github.com/inukshuk/jekyll-scholar.git',
+        ref: 'abc1234' # the commit that includes the fix
     gem 'jekyll-twitter-plugin'
     gem 'jemoji'
     gem 'unicode_utils'
