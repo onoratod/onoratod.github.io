@@ -10,5 +10,4 @@ group :jekyll_plugins do
     gem 'jemoji'
     gem 'unicode_utils'
     gem 'webrick'
-    gem 'uri', '= 0.10.0'
 end
