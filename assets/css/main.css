@@ -1,0 +1,662 @@
+/*******************************************************************************
+ * Variables used throughout the theme.
+ * To adjust anything, simply edit the variables below and rebuild the theme.
+ ******************************************************************************/
+/*******************************************************************************
+ * Themes
+ ******************************************************************************/
+:root {
+  --global-bg-color: rgb(255, 252, 240);
+  --global-text-color: #000000;
+  --global-theme-color: rgb(98, 114, 164);
+  --global-hover-color: rgb(0, 185, 185);
+  --global-footer-bg-color: rgb(98, 114, 164);
+  --global-dropdown-hover: rgb(255, 252, 240);
+  --global-footer-text-color: #e8e8e8;
+  --global-footer-link-color: rgb(255, 252, 240);
+  --global-footer-hover-color: rgb(0, 185, 185);
+  --global-icon-color: rgb(111, 110, 105);
+  --header-border-color: #e8e8e8;
+  --global-sidebar-bg: rgb(255, 246.9, 214.5);
+  --title-highlight: rgba(98, 114, 164, 0.5);
+  --global-muted: rgb(111, 110, 105);
+}
+:root .bi-sun {
+  display: none;
+}
+:root .bi-sun-fill {
+  color: var(--global-muted);
+  padding-left: 10px;
+  padding-top: 10px;
+  display: block;
+}
+:root .bi-sun-fill:hover {
+  color: var(--global-hover-color);
+}
+:root .bi-sun-fill:active {
+  -webkit-transform: scale(0.9, 0.9);
+  transform: scale(0.9, 0.9);
+}
+
+html[data-theme=dark] {
+  --global-bg-color: rgb(16, 15, 15);
+  --global-text-color: rgb(206, 205, 195);
+  --global-theme-color: rgb(0, 185, 185);
+  --global-hover-color: rgb(0, 185, 185);
+  --global-dropdown-hover: rgb(16, 15, 15);
+  --global-footer-bg-color: #44475a;
+  --global-footer-text-color: rgb(206, 205, 195);
+  --global-footer-link-color: rgb(0, 185, 185);
+  --global-footer-hover-color: pink;
+  --global-icon-color: rgb(206, 205, 195);
+  --header-border-color: rgb(206, 205, 195);
+  --global-sidebar-bg: rgb(72.5531914894, 76.1808510638, 97.9468085106);
+  --title-highlight: rgba(0, 185, 185, 0.5);
+  --global-muted: rgb(135, 133, 128);
+}
+html[data-theme=dark] .bi-sun {
+  padding-left: 10px;
+  padding-top: 10px;
+  display: block;
+  color: var(--global-muted);
+}
+html[data-theme=dark] .bi-sun:hover {
+  color: var(--global-hover-color);
+}
+html[data-theme=dark] .bi-sun:active {
+  -webkit-transform: scale(0.9, 0.9);
+  transform: scale(0.9, 0.9);
+}
+html[data-theme=dark] .bi-sun-fill {
+  display: none;
+}
+
+/******************************************************************************
+ * Content
+ ******************************************************************************/
+body {
+  padding-bottom: 70px;
+  color: var(--global-text-color);
+  background-color: var(--global-bg-color);
+}
+
+body.fixed-top-nav {
+  padding-top: 56px;
+}
+
+body.sticky-bottom-footer {
+  padding-bottom: 0;
+}
+
+.container {
+  max-width: 800px;
+}
+
+.profile img {
+  width: 100%;
+}
+
+/******************************************************************************
+ * Publications
+ ******************************************************************************/
+/*****************************************************************************
+* Projects
+*****************************************************************************/
+/*******************************************************************************
+ * Styles for the base elements of the theme.
+ ******************************************************************************/
+p, h1, h2, h3, h4, h5, h6, em, div, span, strong {
+  color: var(--global-text-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+a, table.table a {
+  color: var(--global-text-color);
+}
+a:hover, table.table a:hover {
+  color: var(--global-hover-color);
+  text-decoration: underline;
+}
+h2 {
+  font-weight: 500;
+}
+
+p {
+  font-size: 13pt;
+  color: var(--global-muted);
+}
+
+.equation {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.caption {
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.profile {
+  margin-left: 1rem;
+  width: 100%;
+}
+.profile .address {
+  margin-bottom: 5px;
+  margin-top: 20px;
+  font-family: monospace;
+  font-size: 1.2rem;
+}
+.profile .address p {
+  display: inline-block;
+  margin: 0;
+}
+
+.profile-pic {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  text-align: center;
+}
+.profile-pic img {
+  width: 100px;
+  height: 100px;
+}
+.profile-pic .address {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: normal;
+}
+.profile-pic .address p {
+  display: inline-block;
+  margin: 0;
+}
+
+@media (min-width: 576px) {
+  .profile {
+    width: 30%;
+  }
+  .profile .address p {
+    display: block;
+  }
+}
+.post-description {
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+}
+.post-description a {
+  color: inherit;
+}
+.post-description a:hover {
+  color: var(--global-theme-color);
+  text-decoration: none;
+}
+
+.post h2 {
+  margin-bottom: 1rem;
+}
+
+.author-blurb {
+  font-weight: 400;
+  margin-top: 1rem;
+  opacity: 0.9;
+}
+
+.author-bio {
+  max-width: 500px;
+  text-align: left;
+  margin: 0 auto;
+}
+.author-bio p {
+  color: var(--global-muted);
+  font-size: 13pt;
+}
+
+.navbar {
+  box-shadow: none;
+  border-bottom: 1px solid var(--header-border-color);
+  opacity: 0.95;
+  font-weight: 400;
+  background-color: var(--global-bg-color);
+}
+
+.navbar.navbar-light a:hover {
+  text-decoration: none;
+}
+.navbar.navbar-light .navbar-brand {
+  color: var(--global-text-color);
+}
+.navbar.navbar-light .navbar-nav .nav-item .nav-link {
+  color: var(--global-muted);
+  font-family: 500;
+  transition: 0.15s;
+}
+.navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+  color: var(--global-hover-color);
+}
+.navbar.navbar-light .navbar-nav .nav-item.active > .nav-link {
+  background-color: var(--global-bg-color);
+}
+.navbar.navbar-light .navbar-nav .nav-item.active > .nav-link:hover {
+  color: var(--global-hover-color);
+}
+.navbar.navbar-light .contact-icon {
+  font-size: 2rem;
+}
+.navbar.navbar-light .contact-icon a:hover {
+  color: var(--global-hover-color);
+}
+
+.navbar-toggler .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--global-icon-color);
+  border-radius: 1px;
+  margin-bottom: 4px;
+  transition: all 0.2s;
+}
+.navbar-toggler .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+.navbar-toggler .middle-bar {
+  opacity: 0;
+}
+.navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
+}
+
+.news table td {
+  font-size: 1rem;
+  color: var(--global-text-color);
+}
+
+.news table th {
+  color: var(--global-text-color);
+}
+
+.social {
+  text-align: center;
+}
+.social .contact-icon {
+  font-size: 1rem;
+}
+.social .contact-icon a {
+  margin-left: 3px;
+  margin-right: 3px;
+  color: var(--global-icon-color);
+}
+.social .contact-icon a:hover {
+  color: var(--global-hover-color);
+}
+.social .contact-note {
+  font-size: 0.8rem;
+}
+
+footer.fixed-bottom {
+  background-color: var(--global-bg-color);
+  opacity: 0.95;
+  font-size: 0.75rem;
+}
+footer.fixed-bottom .container {
+  color: var(--global-muted);
+  padding-top: 9px;
+  padding-bottom: 8px;
+}
+footer.fixed-bottom a {
+  color: var(--global-text-color);
+  text-decoration: underline;
+}
+footer.fixed-bottom a:hover {
+  color: var(--global-hover-color);
+  text-decoration: underline;
+}
+
+footer.sticky-bottom {
+  border-top: 1px solid #e8e8e8;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  font-size: 0.9rem;
+}
+
+.bi-info-circle {
+  color: var(--global-text-color);
+}
+.bi-info-circle:hover {
+  color: var(--global-hover-color);
+  cursor: pointer;
+}
+.bi-info-circle:active {
+  -webkit-transform: scale(0.9, 0.9);
+  transform: scale(0.9, 0.9);
+}
+
+.header-bar {
+  border-bottom: 1px solid #e8e8e8;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+.header-bar h1 {
+  color: var(--global-theme-color);
+  font-size: 5rem;
+}
+
+.post-list {
+  margin: 0;
+  margin-bottom: 40px;
+  padding: 0;
+}
+.post-list li {
+  border-bottom: 1px solid #e8e8e8;
+  list-style: none;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.post-list li .post-meta {
+  color: #828282;
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+.post-list li a {
+  color: var(--global-text-color);
+  text-decoration: none;
+}
+.post-list li a:hover {
+  color: var(--global-theme-color);
+}
+
+.pagination .page-item .page-link {
+  color: var(--global-text-color);
+}
+.pagination .page-item .page-link:hover {
+  color: #000000;
+}
+.pagination .page-item.active .page-link {
+  background-color: var(--global-theme-color);
+}
+.pagination .page-item.active .page-link:hover {
+  background-color: var(--global-theme-color);
+}
+
+.distill a:hover {
+  border-bottom-color: var(--global-theme-color);
+  text-decoration: none;
+}
+
+.projects .grid-item {
+  width: 250px;
+  margin-bottom: 10px;
+}
+.projects .grid-item a {
+  color: black;
+  text-decoration: none;
+}
+.projects .grid-item a:hover {
+  color: var(--global-theme-color);
+}
+.projects .card img {
+  width: 100%;
+}
+
+.publications {
+  margin-top: 2rem;
+}
+.publications h1 {
+  color: var(--global-theme-color);
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.publications h2 {
+  margin-bottom: 1rem;
+}
+.publications h2 span {
+  font-size: 1.5rem;
+}
+.publications h2.year {
+  color: var(--global-text-color);
+  padding-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: -1rem;
+  text-align: left;
+  font-weight: 400;
+}
+.publications ol.bibliography {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+}
+.publications ol.bibliography li {
+  margin-bottom: 1rem;
+}
+.publications ol.bibliography li .abbr {
+  height: 2rem;
+  margin-bottom: 0.5rem;
+}
+.publications ol.bibliography li .abbr abbr {
+  display: inline-block;
+  background-color: var(--global-theme-color);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.publications ol.bibliography li .abbr abbr a {
+  color: white;
+}
+.publications ol.bibliography li .abbr abbr a:hover {
+  text-decoration: none;
+}
+.publications ol.bibliography li .abbr .award {
+  color: var(--global-theme-color) !important;
+  border: 1px solid var(--global-theme-color);
+}
+.publications ol.bibliography li .title {
+  font-weight: bolder;
+}
+.publications ol.bibliography li div.author, .publications ol.bibliography li div.periodical, .publications ol.bibliography li div.links {
+  margin-left: 0.5rem;
+}
+.publications ol.bibliography li .author {
+  color: var(--global-muted);
+  font-size: smaller;
+}
+.publications ol.bibliography li .author a {
+  border-bottom: 1px dashed var(--global-theme-color);
+  border-color: var(--global-hover-color);
+}
+.publications ol.bibliography li .author a:hover {
+  text-decoration: none;
+  border-color: var(--global-hover-color);
+}
+.publications ol.bibliography li .author a.pointer {
+  border-bottom: 0px;
+  color: var(--global-muted);
+}
+.publications ol.bibliography li .author a.pointer:hover {
+  cursor: default;
+}
+.publications ol.bibliography li .author > em {
+  border-bottom: 1px solid;
+  font-style: normal;
+}
+.publications ol.bibliography li .periodical > em {
+  color: var(--global-muted);
+  font-size: smaller;
+}
+.publications ol.bibliography li .has-abstract:hover {
+  color: var(--global-hover-color);
+}
+.publications ol.bibliography li .links a.btn {
+  color: var(--global-muted);
+  border: 1px solid var(--global-muted);
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  margin: 0;
+  font-size: 0.5rem;
+  padding: 0.15rem 0.45rem;
+}
+.publications ol.bibliography li .links a.btn:hover {
+  color: var(--global-hover-color);
+  border-color: var(--global-hover-color);
+}
+.publications ol.bibliography li .hidden {
+  font-size: smaller;
+  max-height: 0px;
+  overflow: hidden;
+  text-align: justify;
+  -webkit-transition: 0.15s ease;
+  -moz-transition: 0.15s ease;
+  -ms-transition: 0.15s ease;
+  -o-transition: 0.15s ease;
+  transition: all 0.15s ease;
+}
+.publications ol.bibliography li .hidden p {
+  line-height: 1.4em;
+  margin: 10px;
+  font-size: 10pt;
+  color: var(--global-muted);
+}
+.publications ol.bibliography li .hidden pre {
+  font-size: 1em;
+  line-height: 1.4em;
+  padding: 10px;
+}
+.publications ol.bibliography li .hidden.open {
+  max-height: 100em;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+  transition: all 0.2s ease;
+  font-size: smaller;
+}
+.publications ol.bibliography li div.abstract.hidden {
+  border: solid 1px var(--global-bg-color);
+}
+.publications ol.bibliography li div.abstract.hidden.open {
+  border-color: none;
+}
+
+code {
+  color: var(--global-theme-color);
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}
+
+.back-to-top {
+  cursor: pointer;
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  padding: 6px 0px;
+  border-radius: 30px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.42857;
+  display: none;
+  background-color: var(--global-theme-color) !important;
+}
+.back-to-top:hover {
+  background-color: var(--global-hover-color) !important;
+}
+
+.navbar .dropdown-menu > .dropdown-item {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+  margin-top: -2.5px;
+  margin-bottom: -2.5px;
+  color: var(--global-muted) !important;
+}
+.navbar .dropdown-menu > .dropdown-item:active {
+  background-color: var(--global-bg-color);
+}
+
+.dropdown-header {
+  padding-left: 10px;
+  font-weight: 500;
+  color: var(--global-text-color);
+}
+
+.header-name {
+  font-weight: normal;
+  font-size: 20px;
+}
+.header-name:hover {
+  color: var(--global-hover-color);
+}
+
+.header-last {
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.header-first {
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.navbar-nav li:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  border: 1px solid var(--header-border-color);
+}
+
+.navbar-nav > li > .dropdown-menu {
+  background-color: var(--global-bg-color);
+}
+
+.navbar-nav .dropdown-menu a {
+  color: var(--global-text-color) !important;
+}
+.navbar-nav .dropdown-menu a:hover {
+  background-color: var(--global-dropdown-hover);
+  color: var(--global-hover-color) !important;
+}
+.navbar-nav .dropdown-menu a:active {
+  background-color: var(--global-bg-color);
+}
+
+/*.highlight {
+      background: rgba(0,0,0,0); //#linear-gradient(120deg, #e4a0a1 0%, #e4a0a1 100%);
+      &:hover {
+        background: linear-gradient(120deg, var(--title-highlight) 0%, var(--title-highlight) 100%);
+        background-repeat: no-repeat;
+        background-size: 100% 25%;
+        background-position: 0 80%;
+      }
+}*/
+author-bio > .muted {
+  color: var(--global-muted) !important;
+}
+
+/*# sourceMappingURL=main.css.map */
