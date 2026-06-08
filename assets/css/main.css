@@ -9,7 +9,7 @@
   --global-bg-color: rgb(255, 252, 240);
   --global-text-color: #000000;
   --global-theme-color: rgb(98, 114, 164);
-  --global-hover-color: rgb(0, 185, 185);
+  --global-hover-color: #d97757;
   --global-footer-bg-color: rgb(98, 114, 164);
   --global-dropdown-hover: rgb(255, 252, 240);
   --global-footer-text-color: #e8e8e8;
@@ -42,7 +42,7 @@ html[data-theme=dark] {
   --global-bg-color: rgb(16, 15, 15);
   --global-text-color: rgb(206, 205, 195);
   --global-theme-color: rgb(0, 185, 185);
-  --global-hover-color: rgb(0, 185, 185);
+  --global-hover-color: #d97757;
   --global-dropdown-hover: rgb(16, 15, 15);
   --global-footer-bg-color: #44475a;
   --global-footer-text-color: rgb(206, 205, 195);
@@ -509,13 +509,15 @@ footer.sticky-bottom {
   padding-right: 0.9rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  margin: 0;
-  font-size: 0.5rem;
-  padding: 0.15rem 0.45rem;
 }
 .publications ol.bibliography li .links a.btn:hover {
   color: var(--global-hover-color);
   border-color: var(--global-hover-color);
+}
+.publications ol.bibliography li .links a.btn {
+  margin: 0;
+  font-size: 0.5rem;
+  padding: 0.15rem 0.45rem;
 }
 .publications ol.bibliography li .hidden {
   font-size: smaller;
@@ -593,10 +595,12 @@ html.transition *:after {
   padding-left: 15px;
   margin-top: -2.5px;
   margin-bottom: -2.5px;
-  color: var(--global-muted) !important;
 }
 .navbar .dropdown-menu > .dropdown-item:active {
   background-color: var(--global-bg-color);
+}
+.navbar .dropdown-menu > .dropdown-item {
+  color: var(--global-muted) !important;
 }
 
 .dropdown-header {
