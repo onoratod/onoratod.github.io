@@ -5,7 +5,7 @@
     url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
 
 "Stavreva":
-  - firstname: ["Kamelia", "Kamelia E."]
+  - firstname: ["Kamelia"]
     url: https://www.kameliastavreva.com
 
 "Barlow":
@@ -15,3 +15,19 @@
 "Musen":
   - firstname: ["Kate"]
     url: http://katemusen.com
+  
+"Sterling":
+  - firstname: ["Adina"]
+    url: https://business.columbia.edu/asterling
+
+"Yimfor":
+  - firstname: ["Emmanuel"]
+    url: https://www.eyimfor.com
+
+"Kuziemko":
+  - firstname: ["Ilyana"]
+    url: https://kuziemko.scholar.princeton.edu/
+
+"Naidu":
+  - firstname: ["Suresh"]
+    url: https://www.columbia.edu/~sn2430/
