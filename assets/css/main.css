@@ -9,7 +9,7 @@
   --global-bg-color: rgb(255, 252, 240);
   --global-text-color: #000000;
   --global-theme-color: rgb(98, 114, 164);
-  --global-hover-color: #d97757;
+  --global-hover-color: rgb(0, 185, 185);
   --global-footer-bg-color: rgb(98, 114, 164);
   --global-dropdown-hover: rgb(255, 252, 240);
   --global-footer-text-color: #e8e8e8;
@@ -17,7 +17,7 @@
   --global-footer-hover-color: rgb(0, 185, 185);
   --global-icon-color: rgb(111, 110, 105);
   --header-border-color: #e8e8e8;
-  --global-sidebar-bg: rgb(255, 246.9, 214.5);
+  --global-sidebar-bg: rgb(100%, 96.8235294118%, 84.1176470588%);
   --title-highlight: rgba(98, 114, 164, 0.5);
   --global-muted: rgb(111, 110, 105);
 }
@@ -42,7 +42,7 @@ html[data-theme=dark] {
   --global-bg-color: rgb(16, 15, 15);
   --global-text-color: rgb(206, 205, 195);
   --global-theme-color: rgb(0, 185, 185);
-  --global-hover-color: #d97757;
+  --global-hover-color: rgb(0, 185, 185);
   --global-dropdown-hover: rgb(16, 15, 15);
   --global-footer-bg-color: #44475a;
   --global-footer-text-color: rgb(206, 205, 195);
@@ -50,7 +50,7 @@ html[data-theme=dark] {
   --global-footer-hover-color: pink;
   --global-icon-color: rgb(206, 205, 195);
   --header-border-color: rgb(206, 205, 195);
-  --global-sidebar-bg: rgb(72.5531914894, 76.1808510638, 97.9468085106);
+  --global-sidebar-bg: rgb(28.4522319566%, 29.8748435544%, 38.4105131414%);
   --title-highlight: rgba(0, 185, 185, 0.5);
   --global-muted: rgb(135, 133, 128);
 }
@@ -107,7 +107,7 @@ body.sticky-bottom-footer {
  ******************************************************************************/
 p, h1, h2, h3, h4, h5, h6, em, div, span, strong {
   color: var(--global-text-color);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, Inter, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 a, table.table a {
@@ -158,10 +158,11 @@ p {
   margin-right: auto;
   float: none;
   text-align: center;
+  margin-bottom: 2rem;
 }
 .profile-pic img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 184.5px;
 }
 .profile-pic .address {
   margin-bottom: 5px;
@@ -207,7 +208,7 @@ p {
 
 .author-bio {
   max-width: 500px;
-  text-align: left;
+  text-align: justify;
   margin: 0 auto;
 }
 .author-bio p {
@@ -445,6 +446,8 @@ footer.sticky-bottom {
 }
 .publications ol.bibliography li {
   margin-bottom: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 .publications ol.bibliography li .abbr {
   height: 2rem;
@@ -533,7 +536,7 @@ footer.sticky-bottom {
 .publications ol.bibliography li .hidden p {
   line-height: 1.4em;
   margin: 10px;
-  font-size: 10pt;
+  font-size: 1em;
   color: var(--global-muted);
 }
 .publications ol.bibliography li .hidden pre {
