@@ -6,7 +6,7 @@ description: #555 McNiel Buidling, 123 Street, City State
 
 profile:
   align: right
-  image: catto.jpg
+  image: me.jpg
   address: >
     <p>555 your office number</p>
     <p>123 your address street</p>
@@ -17,7 +17,8 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a fifth year PhD student studying economics at Columbia University. My broad research interests are in labor and economic history with a focus on racial and wage inequality in labor markets. 
+
+Hello! I am a sixth year PhD student studying economics at Columbia University. I will be on the 2026-2027 job market.  My broad research interests are in labor and economic history with a focus on racial and wage inequality in labor markets. 
 
 Prior to starting my PhD I attended undergraduate at the University of Pennsylvania, worked as a pre-doctoral fellow at Opportunity Insights, and worked as a research assistant for Professor Dave Donaldson.
 

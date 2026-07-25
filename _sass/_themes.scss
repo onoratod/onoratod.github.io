@@ -6,7 +6,7 @@
   --global-bg-color: #{$white-color};
   --global-text-color: #{$black-color};
   --global-theme-color: #{$drac-bluish}; //#{$purple-color};
-  --global-hover-color:  #{$swatch-clay}; //#{$flexoki-cyan-400}; //#{$light-drac-bluish}; //#{$light-purple-color};
+  --global-hover-color:  #{$flexoki-cyan-400}; //#{$flexoki-cyan-400}; //#{$light-drac-bluish}; //#{$light-purple-color};
   --global-footer-bg-color: #{$drac-bluish}; //#{$grey-color-dark};
   --global-dropdown-hover: #{$white-color};
   --global-footer-text-color: #{$grey-color-light};
@@ -56,7 +56,7 @@ html[data-theme='dark'] {
   --global-bg-color: #{$flexoki-black};
   --global-text-color: #{$flexoki-200};
   --global-theme-color: #{$drac-purple}; //#{$cyan-color};
-  --global-hover-color: #{$swatch-clay}; //#{$flexoki-cyan-400};  #{$light-cyan-color};
+  --global-hover-color: #{$flexoki-cyan-400}; //#{$flexoki-cyan-400};  #{$light-cyan-color};
   --global-dropdown-hover: #{$flexoki-black};
   --global-footer-bg-color: #{$drac-grey};
   --global-footer-text-color: #{$flexoki-200};
