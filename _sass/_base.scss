@@ -2,6 +2,12 @@
  * Styles for the base elements of the theme.
  ******************************************************************************/
 
+// Always show the scrollbar so the centered layout doesn't shift when a page
+// grows tall enough to scroll (e.g. opening an abstract)
+html {
+  overflow-y: scroll;
+}
+
 // Typography
 
 p, h1, h2, h3, h4, h5, h6, em, div, span, strong {
@@ -437,8 +443,7 @@ footer.sticky-bottom {
     color: var(--global-text-color); //$grey-color-light;
     //border-bottom: 1px solid $grey-color; //$grey-color-light;
     //border-top: 1px solid $grey-color-light;
-    padding-top: 1rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     margin-bottom: -1rem; //-2rem;
     text-align: left; //right;
     font-weight: 400;
@@ -512,9 +517,22 @@ footer.sticky-bottom {
         }
       }
       .has-abstract {
+        cursor: pointer;
+        .text-nowrap {
+          color: inherit;
+        }
         &:hover {
           color: var(--global-hover-color);
         }
+      }
+      .abstract-caret {
+        display: inline-block;
+        font-size: 0.7em;
+        color: var(--global-muted);
+        transition: transform 0.2s ease;
+      }
+      .abstract-open .abstract-caret {
+        transform: rotate(180deg);
       }
       .links {
         a.btn {
@@ -533,17 +551,19 @@ footer.sticky-bottom {
           padding: 0.15rem 0.45rem;
         }
       }
+      // Animate grid rows from 0fr to 1fr so the panel opens to its real height
       .hidden {
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
         font-size: smaller;
-        max-height: 0px;
-        overflow: hidden;
         text-align: justify;
-        -webkit-transition: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
+        transition: grid-template-rows 0.3s ease, opacity 0.3s ease;
 
+        .hidden-inner {
+          overflow: hidden;
+          min-height: 0;
+        }
         p {
           line-height: 1.4em;
           margin: 10px;
@@ -557,19 +577,13 @@ footer.sticky-bottom {
         }
       }
       .hidden.open {
-        max-height: 100em;
-        -webkit-transition: 0.20s ease;
-        -moz-transition: 0.20s ease;
-        -ms-transition: 0.20s ease;
-        -o-transition: 0.20s ease;
-        transition: all 0.20s ease;
-        font-size:smaller;
+        grid-template-rows: 1fr;
+        opacity: 1;
       }
-      div.abstract.hidden {
-        border: solid 1px var(--global-bg-color);
-      }
-      div.abstract.hidden.open {
-        border-color: none; //var(--global-theme-color);
+      @media (prefers-reduced-motion: reduce) {
+        .hidden {
+          transition: none;
+        }
       }
     }
   }
@@ -590,23 +604,33 @@ html.transition *:after {
 
 // To Top Button
 .back-to-top {
-    cursor: pointer;
-    position: fixed;
-    bottom: 50px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    padding: 6px 0px;
-    border-radius: 30px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.25rem;
-    line-height: 1.42857;
-    display: none;
-    background-color: var(--global-theme-color) !important;
-    &:hover {
-      background-color: var(--global-hover-color) !important;
-    }
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--global-muted);
+  background-color: var(--global-bg-color);
+  border: 1px solid var(--global-muted);
+  border-radius: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  &:hover,
+  &:focus-visible {
+    color: var(--global-hover-color);
+    border-color: var(--global-hover-color);
+  }
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    outline: 1px solid var(--global-hover-color);
+    outline-offset: 2px;
+  }
 }
 
 // Dropdown

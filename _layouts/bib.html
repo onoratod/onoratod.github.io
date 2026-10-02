@@ -14,13 +14,14 @@
   {% endfor %}
   </div>-->
 
-  <div id="{{entry.key}}" class="col-sm-10">
+  <div id="{{entry.key}}" class="col-12{% if entry.abstract and entry.expanded == 'true' %} abstract-open{% endif %}">
     {% if entry.type == "thesis" %}
       {{reference}}
     {% else %}
       <div class="title">
         {% if entry.abstract %}
-          <a class="{% if entry.abstract %} has-abstract abstract {% endif %}" role="button">{{entry.title}}</a>
+          {% assign title_words = entry.title | split: ' ' %}
+          <a class="has-abstract abstract" role="button">{{ title_words | pop | join: ' ' }} <span class="text-nowrap">{{ title_words | last }}&nbsp;<i class="bi bi-caret-down-fill abstract-caret"></i></span></a>
         {% else %}
           {{ entry.title }}
         {% endif %}
@@ -63,12 +64,12 @@
           {% else %}
             {% unless forloop.last %}
               {% if author_is_self %}
-                <em>{{author.first}} {{author.last}}</em>,
+                <em>{{author.first}} {{author.last}}</em>{% if forloop.length > 2 %},{% endif %}
               {% else %}
                 {% if coauthor_url %}
-                  <a href="{{coauthor_url}}" target="_blank">{{author.first}} {{author.last}}</a><a class="pointer">↗</a>,
+                  <a href="{{coauthor_url}}" target="_blank">{{author.first}} {{author.last}}</a><a class="pointer">↗</a>{% if forloop.length > 2 %},{% endif %}
                 {% else %}
-                  {{author.first}} {{author.last}},
+                  {{author.first}} {{author.last}}{% if forloop.length > 2 %},{% endif %}
                 {% endif %}
               {% endif %}
             {% else %}
@@ -99,9 +100,9 @@
     {% endif %}
 
     <div class="links">
-    <!--{% if entry.abstract %}
-      <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
-    {% endif %}-->
+    {% if entry.abstract %}
+      <a class="abstract btn btn-sm z-depth-0" role="button">Abstract</a>
+    {% endif %}
     {% if entry.arxiv %}
       <a href="http://arxiv.org/abs/{{ entry.arxiv }}" class="btn btn-sm z-depth-0" role="button" target="_blank">arXiv</a>
     {% endif %}
@@ -160,8 +161,10 @@
 
     <!-- Hidden abstract block -->
     {% if entry.abstract %}
-    <div class="abstract hidden">
-      <p>{{ entry.abstract }}</p>
+    <div class="abstract hidden{% if entry.expanded == 'true' %} open{% endif %}">
+      <div class="hidden-inner">
+        <p>{{ entry.abstract }}</p>
+      </div>
     </div>
     {% endif %}
   </div>
