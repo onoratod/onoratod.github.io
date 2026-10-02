@@ -5,29 +5,38 @@ layout: default
 <div class="post">
 
 
-  {% if page.profile %}
-  <div class="profile-pic">
+  <div class="about-intro">
     {% if page.profile.image %}
-      <img class="img z-depth-2 rounded" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
+    <div class="profile-pic">
+      <img class="img z-depth-2 rounded" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}" alt="{{ site.first_name }} {{ site.last_name }}">
+      <div class="profile-caption">
+        <p class="profile-title">PhD Candidate in Economics</p>
+        <p class="profile-affiliation">Columbia University</p>
+      </div>
+    </div>
     {% endif %}
-  {% endif %}
+
+    <div class="about-text">
+      {% if page.description %}
+      <header class="post-header">
+        <p class="desc">{{ page.description }}</p>
+      </header>
+      {% endif %}
+
+      <div class="muted author-bio clearfix">
+        {{ content }}
+      </div>
+
+      {% if page.social %}
+      <div class="social">
+        {% include social.html %}
+        <div class="contact-note">{{ site.contact_note }}</div>
+      </div>
+      {% endif %}
+    </div>
   </div>
 
-  <header class="post-header text-center">
-    <h5 class="author-blurb">
-      PhD Candidate Economics
-    </h5>
-      {% if page.description %}
-        <p class="desc">{{ page.description }}</p>
-      {% endif %}
-  </header>
-
   <article>
-
-    <div class="muted author-bio clearfix">
-      {{ content }}
-    </div>
-
 
     {% if page.news %}
       {% include news.html %}
@@ -37,12 +46,6 @@ layout: default
       {% include selected_papers.html %}
     {% endif %}
 
-    {% if page.social %}
-    <div class="social">
-      {% include social.html %}
-      <div class="contact-note">{{ site.contact_note }}</div>
-    </div>
-    {% endif %}
   </article>
 
 </div>

@@ -66,26 +66,69 @@ p {
   }
 }
 
+.about-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
 .profile-pic {
-  margin-left: auto;
-  margin-right: auto;
-  float: none;
+  flex: 0 0 auto;
+  width: max-content; // sized by the caption
   text-align: center;
-  margin-bottom: 2rem;
   img {
-    width: 150px;
-    height: 184.5px;
+    // width: 0 keeps the photo out of the width calculation; min-width then
+    // stretches it to match the caption
+    width: 0;
+    min-width: 100%;
+    aspect-ratio: 150 / 184.5;
+    object-fit: cover;
   }
-  .address {
-    margin-bottom: 5px;
-    margin-top: 5px;
-    font-family: monospace;
+}
+
+.profile-caption {
+  margin-top: 1rem;
+  white-space: nowrap;
+  p {
+    margin: 0;
+    line-height: 1.4;
+  }
+  .profile-title {
     font-size: 1rem;
-    font-weight: normal;
-    p {
-      display: inline-block;
-      margin: 0;
+    font-weight: 500;
+  }
+  .profile-affiliation {
+    font-size: 0.9rem;
+    color: var(--global-muted);
+  }
+}
+
+.about-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  .author-bio p:first-child {
+    margin-top: 0;
+  }
+  .social {
+    text-align: left;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-text {
+    text-align: center;
+    .social {
+      text-align: center;
     }
+  }
+}
+
+@media (min-width: 576px) {
+  .about-intro {
+    flex-direction: row;
+    align-items: flex-start;
   }
 }
 
@@ -123,12 +166,13 @@ p {
 }
 
 .author-bio {
-  max-width: 500px; // change width of bio section
-  text-align: justify;
-  margin: 0 auto;
+  text-align: left;
   p {
     color: var(--global-muted);
     font-size: 13pt;
+  }
+  .pointer {
+    color: var(--global-muted);
   }
 }
 

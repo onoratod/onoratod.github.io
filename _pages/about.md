@@ -18,9 +18,15 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 
-Hello! I am a sixth year PhD student studying economics at Columbia University. I will be on the 2026-2027 job market.  My broad research interests are in labor and economic history with a focus on racial and wage inequality in labor markets. 
+Hello! I am a sixth year PhD candidate in economics at Columbia University. My broad interests are in labor and economic history and my research focuses on racial and wage inequality in labor markets. 
 
-Prior to starting my PhD I attended undergraduate at the University of Pennsylvania, worked as a pre-doctoral fellow at Opportunity Insights, and worked as a research assistant for Professor Dave Donaldson.
+**I am on the 2026-2027 job market.**
+
+Prior to starting my PhD I worked as a pre-doctoral fellow at Opportunity Insights, and as a research assistant for Professor Dave Donaldson. 
+
+I completed my undergraduate studies in mathematical economics at the University of Pennsylvania in 2018. 
+
+You can find my CV [here](/assets/pdf/onoratod_cv.pdf){:target="_blank"}<span class="pointer">↗</span>. 
 
 Feel free to contact me using the links below.
 
