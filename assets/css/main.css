@@ -105,6 +105,10 @@ body.sticky-bottom-footer {
 /*******************************************************************************
  * Styles for the base elements of the theme.
  ******************************************************************************/
+html {
+  overflow-y: scroll;
+}
+
 p, h1, h2, h3, h4, h5, h6, em, div, span, strong {
   color: var(--global-text-color);
   font-family: -apple-system, BlinkMacSystemFont, Inter, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -153,29 +157,68 @@ p {
   margin: 0;
 }
 
-.profile-pic {
-  margin-left: auto;
-  margin-right: auto;
-  float: none;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.profile-pic img {
-  width: 150px;
-  height: 184.5px;
-}
-.profile-pic .address {
-  margin-bottom: 5px;
-  margin-top: 5px;
-  font-family: monospace;
-  font-size: 1rem;
-  font-weight: normal;
-}
-.profile-pic .address p {
-  display: inline-block;
-  margin: 0;
+.about-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
+.profile-pic {
+  flex: 0 0 auto;
+  width: max-content;
+  text-align: center;
+}
+.profile-pic img {
+  width: 0;
+  min-width: 100%;
+  aspect-ratio: 150/184.5;
+  object-fit: cover;
+}
+
+.profile-caption {
+  margin-top: 1rem;
+  white-space: nowrap;
+}
+.profile-caption p {
+  margin: 0;
+  line-height: 1.4;
+}
+.profile-caption .profile-title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.profile-caption .profile-affiliation {
+  font-size: 0.9rem;
+  color: var(--global-muted);
+}
+
+.about-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.about-text .author-bio p:first-child {
+  margin-top: 0;
+}
+.about-text .social {
+  text-align: left;
+}
+
+@media (max-width: 575.98px) {
+  .about-text {
+    text-align: center;
+  }
+  .about-text .social {
+    text-align: center;
+  }
+}
+@media (min-width: 576px) {
+  .about-intro {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
 @media (min-width: 576px) {
   .profile {
     width: 30%;
@@ -207,13 +250,14 @@ p {
 }
 
 .author-bio {
-  max-width: 500px;
-  text-align: justify;
-  margin: 0 auto;
+  text-align: left;
 }
 .author-bio p {
   color: var(--global-muted);
   font-size: 13pt;
+}
+.author-bio .pointer {
+  color: var(--global-muted);
 }
 
 .navbar {
@@ -433,8 +477,7 @@ footer.sticky-bottom {
 }
 .publications h2.year {
   color: var(--global-text-color);
-  padding-top: 1rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   margin-bottom: -1rem;
   text-align: left;
   font-weight: 400;
@@ -502,8 +545,23 @@ footer.sticky-bottom {
   color: var(--global-muted);
   font-size: smaller;
 }
+.publications ol.bibliography li .has-abstract {
+  cursor: pointer;
+}
+.publications ol.bibliography li .has-abstract .text-nowrap {
+  color: inherit;
+}
 .publications ol.bibliography li .has-abstract:hover {
   color: var(--global-hover-color);
+}
+.publications ol.bibliography li .abstract-caret {
+  display: inline-block;
+  font-size: 0.7em;
+  color: var(--global-muted);
+  transition: transform 0.2s ease;
+}
+.publications ol.bibliography li .abstract-open .abstract-caret {
+  transform: rotate(180deg);
 }
 .publications ol.bibliography li .links a.btn {
   color: var(--global-muted);
@@ -523,15 +581,16 @@ footer.sticky-bottom {
   padding: 0.15rem 0.45rem;
 }
 .publications ol.bibliography li .hidden {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
   font-size: smaller;
-  max-height: 0px;
-  overflow: hidden;
   text-align: justify;
-  -webkit-transition: 0.15s ease;
-  -moz-transition: 0.15s ease;
-  -ms-transition: 0.15s ease;
-  -o-transition: 0.15s ease;
-  transition: all 0.15s ease;
+  transition: grid-template-rows 0.3s ease, opacity 0.3s ease;
+}
+.publications ol.bibliography li .hidden .hidden-inner {
+  overflow: hidden;
+  min-height: 0;
 }
 .publications ol.bibliography li .hidden p {
   line-height: 1.4em;
@@ -545,19 +604,13 @@ footer.sticky-bottom {
   padding: 10px;
 }
 .publications ol.bibliography li .hidden.open {
-  max-height: 100em;
-  -webkit-transition: 0.2s ease;
-  -moz-transition: 0.2s ease;
-  -ms-transition: 0.2s ease;
-  -o-transition: 0.2s ease;
-  transition: all 0.2s ease;
-  font-size: smaller;
+  grid-template-rows: 1fr;
+  opacity: 1;
 }
-.publications ol.bibliography li div.abstract.hidden {
-  border: solid 1px var(--global-bg-color);
-}
-.publications ol.bibliography li div.abstract.hidden.open {
-  border-color: none;
+@media (prefers-reduced-motion: reduce) {
+  .publications ol.bibliography li .hidden {
+    transition: none;
+  }
 }
 
 code {
@@ -573,23 +626,32 @@ html.transition *:after {
 }
 
 .back-to-top {
-  cursor: pointer;
+  display: none;
   position: fixed;
   bottom: 50px;
   right: 20px;
-  width: 40px;
-  height: 40px;
-  padding: 6px 0px;
-  border-radius: 30px;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 1.25rem;
-  line-height: 1.42857;
-  display: none;
-  background-color: var(--global-theme-color) !important;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--global-muted);
+  background-color: var(--global-bg-color);
+  border: 1px solid var(--global-muted);
+  border-radius: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
-.back-to-top:hover {
-  background-color: var(--global-hover-color) !important;
+.back-to-top:hover, .back-to-top:focus-visible {
+  color: var(--global-hover-color);
+  border-color: var(--global-hover-color);
+}
+.back-to-top:focus {
+  outline: none;
+}
+.back-to-top:focus-visible {
+  outline: 1px solid var(--global-hover-color);
+  outline-offset: 2px;
 }
 
 .navbar .dropdown-menu > .dropdown-item {
@@ -664,6 +726,22 @@ html.transition *:after {
 }*/
 author-bio > .muted {
   color: var(--global-muted) !important;
+}
+
+.teaching .course-number {
+  color: var(--global-muted);
+  font-weight: normal;
+}
+.teaching .course-rating {
+  color: var(--global-muted);
+  font-size: smaller;
+}
+.teaching .course-sep {
+  color: inherit;
+  font-size: 1.4em;
+  line-height: 0;
+  vertical-align: -0.1em;
+  margin: 0 0.15em;
 }
 
 /*# sourceMappingURL=main.css.map */
