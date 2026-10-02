@@ -1,0 +1,20 @@
+# Courses listed on the teaching page, most recent first.
+# Evaluation PDFs go in assets/pdf/teaching/; set `evaluations` to the file
+# name. `rating` is the course's average evaluation score.
+- course: Introduction to Econometrics
+  number: ECON UN3412
+  level: Undergraduate
+  role: Teaching Assistant
+  professor: Jushan Bai
+  terms: [Fall 2024]
+  rating: 4.76
+  evaluations: econ3412_fall2024_evaluations.pdf
+
+- course: Intermediate Macroeconomics
+  number: ECON UN3213
+  level: Undergraduate
+  role: Teaching Assistant
+  professor: Xavier Sala-i-Martin
+  terms: [Fall 2022]
+  rating: 4.33
+  evaluations: econ3213_fall2022_evaluations.pdf

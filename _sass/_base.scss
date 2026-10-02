@@ -714,3 +714,22 @@ html.transition *:after {
 author-bio > .muted {
   color: var(--global-muted)!important;
 }
+
+// Teaching page (reuses the publication list styles)
+.teaching {
+  .course-number {
+    color: var(--global-muted);
+    font-weight: normal;
+  }
+  .course-rating {
+    color: var(--global-muted);
+    font-size: smaller;
+    .course-sep {
+      color: inherit;
+      font-size: 1.4em;
+      line-height: 0;
+      vertical-align: -0.1em;
+      margin: 0 0.15em;
+    }
+  }
+}
