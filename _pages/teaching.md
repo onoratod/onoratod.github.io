@@ -22,7 +22,7 @@ rating_scale: 5
           {{ c.course }}{% if c.number %} <span class="course-number">({{ c.number }})</span>{% endif %}
         </div>
         <div class="author">
-          {{ c.role }} for Professor {{ c.professor }} &middot; {{ c.terms | join: ", " }}
+          {{ c.role }} for Professor {{ c.professor }} <span class="course-sep">&bull;</span> {{ c.terms | join: ", " }}
         </div>
         <div class="periodical">
           <em>{{ c.level }}, Columbia University</em> <span class="course-rating"><span class="course-sep">&bull;</span> Evaluation: {{ c.rating | default: "X.X" }}/{{ page.rating_scale }} (average)</span>
