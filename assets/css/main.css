@@ -173,8 +173,6 @@ p {
 .profile-pic img {
   width: 0;
   min-width: 100%;
-  aspect-ratio: 150/184.5;
-  object-fit: cover;
 }
 
 .profile-caption {
