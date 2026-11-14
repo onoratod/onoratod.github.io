@@ -61,6 +61,7 @@ contact_note:
 
 google_analytics: UA-XXXXXXXXX # out your google-analytics code
 panelbear_analytics: XXXXXXXXX # panelbear analytics site ID
+plausible_analytics: pa-wKxQIqdAbp6JV2USWbXOo # plausible analytics script ID
 
 # -----------------------------------------------------------------------------
 # Blog
@@ -163,6 +164,7 @@ scholar:
 
 enable_google_analytics:    false
 enable_panelbear_analytics: false
+enable_plausible_analytics: true
 enable_mansory:             true
 enable_math:                true
 enable_tooltips:            false
